@@ -1,13 +1,14 @@
+<!-- OUR PHP CODE -->
 <?php 
 	$fond = "#FFF";
 	$text = "#000";
-	if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) // Check if client came with submit button and With "POST" Method or by link directly
+	if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) // CHECK IF "POST"_SUBMIT
 		{
 			$fond = $_POST['fond'];
 			$text = $_POST['text'];
 			setcookie("fond",$_POST['fond'],time()+3600,"/");
 			setcookie("text",$_POST['text'],time()+3600,"/");
-		}elseif( isset($_COOKIE['fond']) AND isset($_COOKIE['text']) )
+		}elseif( isset($_COOKIE['fond']) AND isset($_COOKIE['text']) ) // CHECK IF COOKIE_EXIST
 			{
 				$fond = $_COOKIE['fond'];
 				$text = $_COOKIE['text'];
@@ -18,9 +19,8 @@
 <head>
 	<title>COOKIES TEST</title>
 </head>
-<!-- ////////////////////////////////////////////////////////////
-// BODY TAG
-////////////////////////////////////////////////////////////-->
+
+<!-- OUR BODY -->
 <body style="background-color:<?php echo $fond; ?>;color:<?php echo $text; ?>">
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 		fond : <input type="color" name="fond"><br>
