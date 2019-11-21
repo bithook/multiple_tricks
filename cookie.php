@@ -1,7 +1,7 @@
 <?php 
 	$fond = "#FFF";
 	$text = "#000";
-	if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) // On 
+	if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) // Check if client came with submit button and With "POST" Method or by link directly
 		{
 			$fond = $_POST['fond'];
 			$text = $_POST['text'];
@@ -18,6 +18,9 @@
 <head>
 	<title>COOKIES TEST</title>
 </head>
+<!-- ////////////////////////////////////////////////////////////
+// BODY TAG
+////////////////////////////////////////////////////////////-->
 <body style="background-color:<?php echo $fond; ?>;color:<?php echo $text; ?>">
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 		fond : <input type="color" name="fond"><br>
